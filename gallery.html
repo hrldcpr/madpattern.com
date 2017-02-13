@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+	<title>MadPattern - A Free Tool For Rapidly Prototyping Patterns - Gallery Page</title>
+	<meta name="title" content="MadPattern - gallery" /> 
+	<meta name="description" content="a gallery of patterns created with the MadPattern templates" /> 
+	<link rel="image_src" href="microdefender.of.salt.share.png" / >
+	<meta name="medium" content="image" />
+	<style type="text/css">
+		
+		* {
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			font-family: helvetica;
+		}
+		
+		a {
+			color: fuchsia;
+		}
+		
+		.cBlue {
+			color: #244482;
+		}
+
+		.cPink {
+			color: fuchsia;
+		}
+		
+		body {
+			background-color: #111;
+			background-color: #181818;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+		}
+		
+		#header {
+			position: relative;
+			background-color: #111;
+		}
+		
+		#slogan{
+			position: absolute;
+			bottom: 4px;
+			left: 200px;
+			color: #FFEA00;
+		}
+		
+		#menuWrapper {
+			position: absolute;
+			bottom: 10%;
+			right: 15px;
+			color: white;
+		}
+		
+		#menuWrapper a {
+			color: #ccc;
+			padding: 6px;
+			border: 2px solid rgba(0,0,0,.5);
+			text-decoration: none;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			background-color: #143462;
+			position: relative;
+			margin-left: 10px;
+			background-image: url(webpagebg.png);
+		}
+		
+		#menuWrapper a:hover {
+			color: white;
+			border-color: rgba(0,0,0,.6);
+		}
+		
+		#wrapper {
+			border-top: 4px solid rgba(0,0,0,.6);
+			border-bottom: 4px solid rgba(0,0,0,.6);
+			background-color: #eee;
+			height: 400px;
+			position: relative;
+			padding: 5px 4px 5px 4px;
+			background-image: url(webpagebg.png);
+		}
+
+		#footer {
+			height: 100px;
+			color: white;
+			position: relative;
+			background-image: url(http://www.madpattern.com/gradient.php?height=100&color2=181818&color1=000);
+			background-repeat: repeat-x;
+		}
+		
+		#help {
+			position: absolute;
+			left: 20px;
+			top: 20px;
+		}
+		
+		#donate {
+			position: absolute;
+			top: 15px;
+			right: 130px;
+		}
+		
+		#copywrite {
+			text-align: center;
+			padding-top: 15px;
+			width: 100%;
+			font-size: 12px;
+			font-weight: normal;
+			padding-top: 80px;
+			color: #444;
+		}
+		
+		#copywrite a {
+			color: #666;
+			text-decoration: none;
+		}
+
+		#tutorialButton {
+			cursor: pointer;
+		}
+		
+		#tweet {
+			position: absolute;
+			right: 10px;
+			bottom: 28px;
+		}
+		
+		#facebook {
+			position: absolute;
+			right: 64px;
+			bottom: 31px;
+		}
+		
+		#galleryInfo, #spoonflower {
+			position: absolute;
+			top: 5px;
+			right: 58px;
+			z-index: 20;
+			border: 1px solid #999;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			background-color: #eee;
+			width: 300px;
+			padding: 15px;
+			padding-left: 40px;
+			color: #666;
+		}
+		
+		#spoonflower {
+			right: auto;
+			left: 170px;
+			width: 200px;
+			display: none;
+		}
+		
+		#fader {
+			position:absolute;
+			top: 173px;
+			left: 0px;
+			width: 100%;
+			height: 418px;
+			background-color: black;
+			opacity: 0.0;
+			z-index: 10;
+/*			cursor: move;*/
+		}
+		
+		#infoBox {
+			position:absolute;
+			-webkit-border-top-left-radius: 10px;
+			-webkit-border-top-right-radius: 10px;
+			-moz-border-radius-topleft: 10px;
+			-moz-border-radius-topright: 10px;
+			bottom: -4px;
+			left: 50px;
+			background: rgba(255,255,255,.8);
+			padding: 18px 10px 10px 70px;
+			color: black;
+			min-width: 200px;
+			z-index: 11;
+			display: none;
+		}
+		
+		#infoBoxIcon {
+			height: 48px;
+			width: 48px;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			background-color: #555;
+			border: 1px solid #333;
+		}
+		
+		#infoBoxTitle {
+			letter-spacing: -.05em;
+			margin-bottom: 10px;
+			margin-right: 10px;
+			font-size: 32px;
+			font-weight: bolder;
+		}
+		
+		#infoBoxDate {
+			position: absolute;
+			right: 19px;
+			font-size: 10px;
+			bottom: 8px;
+			color: #444;
+			text-align: right;
+		}
+		
+		#infoBoxAuthor {
+			position: absolute;
+			left: 76px;
+			top: 7px;
+			font-size: 12px;
+		}
+		
+		#userSelector {
+			z-index: 15;
+			position: absolute;
+			bottom: 145px;
+			right: 0px;
+			width: 535px;
+			height: 30px;
+		}
+		
+		#userSelector li {
+			color: #ccc;
+			display: inline-block;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			background-color: #777;
+			cursor: pointer;
+			padding: 4px;
+			border: 1px solid rgba(255,255,255,.5);
+		}
+		
+		#userSelector li:hover {
+			background-color: #222;
+			color: #ddd;
+		}
+		
+		#userSelector li.selected {
+			background-color: black;
+			color: white;
+		}
+				
+		#imageBox {
+			position:absolute;
+			bottom: 30px;
+			right: 0px;
+			margin: 10px;
+			padding: 10px 18px 10px 18px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			background-color: rgba(0,0,0,.85);
+			border: 1px solid rgba(255,255,255,.5);
+			height: 83px;
+			width: 487px;
+			overflow: hidden;
+			line-height: 83px;
+			z-index: 12;
+		}
+	
+		#images {
+			line-height: 12px;
+		}
+		
+		#images li {
+			display: inline-block;
+			list-style-type: none;
+			padding: 2px;
+			max-width: 100px;
+			text-align: center;
+		}
+		
+		#images p {
+			
+			color: #555;
+			font-size: 10px;
+			font-style: italic;
+		}
+		
+		#images img {
+			border: 1px solid black;
+			cursor: pointer;
+		}
+		
+		#images img:hover {
+			border: 1px solid white;
+		}
+
+		#buttonLeft, #buttonRight {
+			cursor: pointer;
+			position: absolute;
+			width: 0px;
+			height: 0px;
+			top: 44px;
+			border-style: solid;
+			border-right-width: 0px;
+			border-left-width: 0px;
+			border-top: 8px solid rgba(0,0,0,0);
+			border-bottom: 8px solid rgba(0,0,0,0);
+		}
+		
+		#buttonLeft {
+			left: 4px;
+			border-right-width: 13px;
+		}
+		
+		#buttonRight {
+			right: 4px;
+			border-left-width: 13px;
+		}
+		
+		.active {
+			opacity: 1;
+			cursor: pointer;
+			border-color: #888;
+		}
+		
+		.active:hover {
+			border-left-color: #fff;
+			border-right-color: #fff;
+		}
+		
+		.disabled {
+			border-color: #222;
+			cursor: default;
+		}
+		
+		#fullscreenButton {
+			position: absolute;
+			top: 4px;
+			right: 4px;
+			width: 42px;
+			height: 38px;
+			background-image: url(fullscreen.png);
+			opacity: 0.65;
+			cursor: pointer;
+			z-index: 20;
+			border: 1px solid white;
+		}
+		
+		#fullscreenButton:hover {
+			opacity: 0.8;
+		}
+		
+		#fullscreenButton:active {
+			opacity: 1;
+		}
+		
+		#homeLink {
+			position: absolute;
+			top: 4px;
+			left: 4px;
+			padding: 6px;
+			background-color: black;
+			z-index: 20;
+			-moz-border-radius: 8px;
+			-webkit-border-radius: 8px;
+			text-decoration: none;
+			display: none;
+		}
+		
+	</style>
+	<!--[if IE]>
+	   <style type="text/css">
+
+		#menuWrapper a {
+			border: 2px solid rgba(0,0,0,.5);
+			border: 2px solid #222;
+		}
+		
+		#menuWrapper a:hover {
+			border-color: rgba(0,0,0,.6);
+			border-color: #333;
+		}
+		
+		#wrapper {
+			border-top: 4px solid rgba(0,0,0,.6);
+			border-bottom: 4px solid rgba(0,0,0,.6);
+			border-top: 4px solid #111;
+			border-bottom: 4px solid #111;
+		}
+	
+		#userSelector li {
+			border: 1px solid rgba(255,255,255,.5);
+			border: 1px solid #eee;
+			background: transparent;
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#D8000000,endColorstr=#D8000000)"; /* IE8 */    
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#D8000000,endColorstr=#D8000000);   /* IE6 & 7 */ 
+			zoom: 1;
+		}
+		
+	   	#imageBox {
+			background-color: rgba(0,0,0,.85);
+			border: 1px solid rgba(255,255,255,.5);
+			border: 1px solid #eee;
+			background: transparent;
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#D8000000,endColorstr=#D8000000)"; /* IE8 */    
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#D8000000,endColorstr=#D8000000);   /* IE6 & 7 */      
+			zoom: 1;
+		}
+	
+		#infoBox {
+			background: rgba(255,255,255,.8);
+			background: transparent;
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF,endColorstr=#CCFFFFFF)"; /* IE8 */    
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#CCFFFFFF,endColorstr=#CCFFFFFF);   /* IE6 & 7 */      
+			zoom: 1;
+		}
+		
+		#buttonLeft, #buttonRight {
+			border-top: 8px solid transparent;
+			border-bottom: 8px solid transparent;
+		}
+		
+		#buttonLeft {
+			left: 4px;
+			border-right-width: 13px;
+		}
+		
+		#buttonRight {
+			right: 4px;
+			border-left-width: 13px;
+		}
+
+	    </style>
+	<![endif]-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.flickr.js"></script>
+	<script language="Javascript" type="text/javascript">
+		function gup( name )
+		{
+		  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		  var regexS = "[\\?&]"+name+"=([^&#]*)";
+		  var regex = new RegExp( regexS );
+		  var results = regex.exec( window.location.href );
+		  if( results == null )
+		    return "";
+		  else
+		    return results[1];
+		}
+		
+		var thumbs;
+		var apikey = '5bc8586332ba0339327a9d0ed3b28742';
+		var config = {
+			api_key: apikey,
+		};
+		var groupPhotos = "flickr.groups.pools.getPhotos";
+		var peopleInfo = "flickr.people.getInfo";
+		var groupId = "1259359@N24";
+		
+		isEmpty = function(obj) {
+      		for (var i in obj) { return false; }
+      		return true;
+    	};
+		
+		url = function (method, params) { 
+			return "http://api.flickr.com/services/rest/?method="+method+"&format=json&api_key=" + apikey +
+			(isEmpty(params) ? '' : '&' + $.param(params)) + "&jsoncallback=?";
+		};
+		
+		imageUrl = function (photo, size) {
+			return 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + 
+				'_' + photo.secret + size + '.jpg';
+		};
+		
+		rotateThumbs = function (page) {
+			var maxPages;
+			// $("#images").empty();
+			$("#images > li").fadeOut("normal");
+			
+			var PlaceAuthor = function (data) {
+				
+				$("#infoBox").css("display","block");
+				$("#infoBoxAuthor").empty();
+				person = data.person;
+				thisLink = $("<a/>").attr("href", person.photosurl._content).text(person.username._content + "'s");
+				thisLink.appendTo("#infoBoxAuthor");
+				$("#infoBoxIcon").css("background-image", 
+				 	"url(http://farm" + person.iconfarm + ".static.flickr.com/" + person.iconserver +
+					"/buddyicons/" + person.id + ".jpg)");
+				
+			};
+			
+			var placeDescription = function (string) {
+				$("#spoonflower").show().html(string).children("a").attr("target", "_blank");
+			}
+			
+			var PlaceImages = function (data) {
+        		photos = (data.photos === undefined ? data.photoset : data.photos);
+				maxPages = photos.pages;
+				$("#images").empty();
+				
+				$.each(photos.photo, 
+					function (i, photo) {
+						var imageDate = new Date( photo.dateadded *1000);
+						var thisDate = imageDate.toGMTString().replace(/[0-9][0-9]:.*$/,"");
+						var image = new Image();
+						var largeImage = new Image();
+						var tags = photo.tags;
+						var description = photo.description._content;
+						largeImage.src = imageUrl(photo, "");
+						image.src = imageUrl(photo, "_s");
+						image.alt = photo.title;
+						
+						var thisLi = $("<li/>").css("display","none").appendTo("#images");
+						var thisImg = $("<img/>").attr("src", image.src).attr("alt", image.alt);
+						thisImg.appendTo(thisLi);
+						// var thisP = $("<p/>").html(photo.dateadded);
+						// thisP.appendTo(thisLi);
+						
+						thisImg.click(
+							function () {
+								$("#spoonflower").hide();
+								$("#fader").animate({
+									opacity: "1"
+								}, "slow", "swing", function () {
+									$("#wrapper").css("background-image","url(" + largeImage.src + ")");
+									$("#infoBoxTitle").html((photo.title).replace(/\./g," ").replace(/tile\s*$/,""));
+									$("#infoBoxDate").text(thisDate);
+									$.getJSON(url(peopleInfo, {user_id: photo.owner}), PlaceAuthor);
+									
+									if (description && description.indexOf("buy this pattern on fabric") != -1)
+										placeDescription(description);
+									
+									$("#fader").animate({
+										opacity: "0"
+									}, "slow");
+								});
+							}
+						);
+						
+						thisLi.fadeIn("normal");
+					}
+				);
+				
+				page == 1 ? 
+					$("#buttonLeft").removeClass("active").addClass("disabled").unbind('click') :
+					$("#buttonLeft").unbind('click').click(function () {$("#buttonRight").removeClass("disabled").addClass("active");rotateThumbs(page-1);});
+				page == maxPages ? 
+					$("#buttonRight").removeClass("active").addClass("disabled").unbind('click') : 
+					$("#buttonRight").unbind('click').click(function () {$("#buttonLeft").removeClass("disabled").addClass("active");rotateThumbs(page+1);});
+				
+			};
+			
+			var p = {group_id: "1259359@N24", per_page: 6, page: page, extras: "description,tags"};
+			$("#myPatterns").hasClass("selected") ? p.user_id = "8714408@N03" : true;
+			((gup('userid')).length > 0) ? p.user_id = gup('userid') : true;
+			$.getJSON(url(groupPhotos, p), PlaceImages);
+			
+		};
+
+		$(document).ready( function () {
+			rotateThumbs(1);	
+			
+			$("#fullscreenButton").toggle(
+				function () {
+					$("#header").add("#footer").slideToggle('slow');
+					$("body").css("overflow","hidden");
+					$("#fader").css("height","100%").css("top","auto");
+					$("#wrapper").css("height","100%");
+					$("#homeLink").fadeIn('fast');
+					$("#infoBox").css("bottom", "10px");
+				},
+				function () {
+					$("#header").add("#footer").slideToggle('slow');
+					$("body").css("overflow","auto");
+					$("#fader").css("height","418px").css("top","173px");
+					$("#wrapper").css("height","400px");
+					$("#homeLink").fadeOut('fast');
+					$("#infoBox").css("bottom", "-4px");
+				}	
+			);	
+			
+			// $("#fader").mousedown(function (e) {
+			// 	$(this).css("cursor","-moz-grabbing");
+			// 	$(this).bind('mouseup', function (e) {
+			// 		$(this).unbind('.backgroundMove').unbind(e);
+			// 		$(this).css("cursor","move");
+			// 	});
+			// 	$(this).bind('mousemove.backgroundMove', {x0: e.pageX, y0: e.pageY}, function (moveE) {
+			// 		$("#wrapper").css('background-position', (moveE.data.x0 + moveE.pageX)+"px "+(moveE.data.y0 + moveE.pageY)+"px");
+			// 	});
+			// });
+			
+			$("#userSelector li").click(function () {
+				$(this).addClass("selected").siblings("li").removeClass("selected");
+			});
+			
+			$("#userSelector li").click(function () { rotateThumbs(1); });
+			
+			if ( gup('fullscreen') != "false" ) $("#fullscreenButton").trigger('click');
+		});
+		
+	</script>
+
+	<script>
+
+	</script>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try{
+		var pageTracker = _gat._getTracker("UA-16659632-1");
+		pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+	<div id="header">
+			<a href="/"><img src="madpatternlogo.png" /></a>
+			<p class="" id="slogan">a free tool for rapidly prototyping patterns</p>
+			<div id="menuWrapper">
+				<a href="http://groups.google.com/group/madpattern" onClick="javascript: pageTracker._trackPageview('/outbound/support');">support&raquo;</a>
+			</div>
+	</div>
+	<div id="fader">
+	
+	</div>
+	<div id="wrapper">
+		<div id="spoonflower">
+		</div>
+		<p id="galleryInfo">
+			<span style="position:absolute;font-size:58px;color:#bbb;left:10px;bottom:-1px;font-family:georgia">!</span>to contribute to the gallery, add your photos to the <a href="http://www.flickr.com/groups/thewallpapergroup/pool/" onClick="javascript: pageTracker._trackPageview('/outbound/flickrgroup');">flickr group</a>
+		</p>
+		<a id="homeLink" href="/">
+			<span style="color:#aaa">&laquo; </span><span class="cBlue">Mad</span><span class="cPink">Pattern</span><span style="color:white"> home</span>
+		</a>
+		<div id="fullscreenButton">
+		</div>
+		<ul id="userSelector">
+			<li id="myPatterns" class="selected">my patterns</li>
+			<li id="everyoneElses" class="">user contributed</li>
+		</ul>
+		<div id="imageBox">
+			<div id="buttonLeft" class="active"></div>
+			<div id="buttonRight" class="active"></div>
+			<ul id="images">
+				<li><img id="loader" src="ajax-loader.gif"/></li>
+			</ul>
+		</div>
+
+		<div id="infoBox">
+			<div id="infoBoxIcon"></div>
+			<div id="infoBoxTitle"></div>
+			<div id="infoBoxAuthor"></div>
+			<div id="infoBoxDate"></div>
+		</div>
+
+	</div>
+	<div id="footer">
+		<div id="help">
+			need help? want me to design a pattern for you? feel free to <a href="mailto:matt@madpattern.com">email me</a>
+		</div>
+		<div id="copywrite">
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/80x15.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dc:title" rel="dc:type">MadPattern 1.0</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.madpattern.com/" property="cc:attributionName" rel="cc:attributionURL">Matt Handler</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.
+			<br/>
+			<a href="http://www.matthandler.com" target="new" onClick="javascript: pageTracker._trackPageview('/outbound/matthandler.com');">matt handler.com</a>
+		</div>
+		<div id="tweet">
+			<script type="text/javacript">
+				tweetmeme_source = 'matthandlersux';
+			</script>
+			<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
+		</div>
+		<div id="facebook">
+			<a name="fb_share" type="box_count" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>		</div>
+		<div id="donate">
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+			">
+			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

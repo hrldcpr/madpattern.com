@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+	<title>Mad Pattern Gallery</title>
+	<style type="text/css">
+		
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		
+		body {
+			font-family: Helvetica;
+		}
+		
+		a {
+			color: #962026;
+			text-decoration: none;
+			border-bottom: 1px dotted #962026;
+			padding-left: 3px;
+			padding-right: 3px;
+		}
+		
+		a:hover {
+			color: fuchsia;
+			border-bottom-color: fuchsia;
+		}
+		
+		#homeLink {
+			position:absolute;
+			-webkit-border-bottom-left-radius: 10px;
+			-moz-border-radius-bottomleft: 10px;
+			top: 0px;
+			right: 0px;
+			background: rgba(0,0,0,.9);
+			padding: 10px;
+			color: white;
+			z-index: 2;
+		}
+		
+		#mainWrapper {
+			background-image: url(http://www.madpattern.com/standardbg.png);
+			background-repeat: repeat;
+			background-color: #aaa;
+			min-height: 500px;
+			padding-top: 30px;
+			min-width: 600px;
+			border-bottom: 2px solid #222;
+			position: relative;
+			
+		}
+		
+		#infoBox {
+			position:absolute;
+			-webkit-border-top-left-radius: 10px;
+			-webkit-border-top-right-radius: 10px;
+			-moz-border-radius-topleft: 10px;
+			-moz-border-radius-topright: 10px;
+			bottom: 0px;
+			left: 50px;
+			background: rgba(255,255,255,.8);
+			padding: 18px 10px 10px 70px;
+			color: black;
+			min-width: 200px;
+			max-width: 400px;
+			z-index: 3;
+			display: none;
+		}
+		
+		#infoBoxIcon {
+			height: 48px;
+			width: 48px;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			background-color: #555;
+			border: 1px solid #333;
+		}
+		
+		#infoBoxTitle {
+			letter-spacing: -.05em;
+			margin-bottom: 10px;
+			margin-right: 10px;
+			font-size: 32px;
+			font-weight: bolder;
+		}
+		
+		#infoBoxDate {
+			position: absolute;
+			right: 19px;
+			font-size: 10px;
+			bottom: 16px;
+			color: #444;
+			text-align: right;
+		}
+		
+		#infoBoxAuthor {
+			position: absolute;
+			left: 76px;
+			top: 7px;
+			font-size: 12px;
+		}
+		
+		#footer {
+			min-height: 200px;
+			background-image: url(http://www.madpattern.com.com/gradient.php?height=200&color2=bbb&color1=777);
+			border-top: 2px solid #555;
+			position: relative;
+			max-height: 200px;
+			clear: both;
+			text-align: center;
+		}
+		
+		#footer ul {
+		}
+		
+		#footer ul li {
+			display: inline;
+			margin-left: 10px;
+		}
+		
+		#policy {
+			position: absolute;
+			bottom: 0px;
+			background-color: rgba(0,0,0,.9);
+			width: 100%;
+			text-align: center;
+			color: #aaa;
+			font-size: 11px;
+		}
+
+		.cBlue {
+			color: #143462;
+		}
+		
+		.cPink {
+			color: fuchsia;
+
+		}
+		
+		#body {
+			background-color: #000;		
+		}
+		
+		#imageBox {
+			position:absolute;
+			bottom: 30px;
+			right: 0px;
+			margin: 10px;
+			padding: 10px 18px 10px 18px;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			background-color: rgba(0,0,0,.85);
+			border: 1px solid rgba(255,255,255,.5);
+			height: 83px;
+			width: 487px;
+			overflow: hidden;
+			line-height: 83px;
+		}
+		
+		#images {
+			line-height: 12px;
+		}
+		
+		#images li {
+			display: inline-block;
+			list-style-type: none;
+			padding: 2px;
+			max-width: 100px;
+			text-align: center;
+		}
+		
+		#images p {
+			
+			color: #555;
+			font-size: 10px;
+			font-style: italic;
+		}
+		
+		#images img {
+			border: 1px solid black;
+			cursor: pointer;
+		}
+		
+		#images img:hover {
+			border: 1px solid white;
+		}
+		
+		#fader {
+			position:absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			min-height: 600px;
+			background-color: black;
+			opacity: 0;
+		}
+		
+		#buttonLeft, #buttonRight {
+			position: absolute;
+			width: 0px;
+			height: 0px;
+			top: 44px;
+			border-style: solid;
+			border-right-width: 0px;
+			border-left-width: 0px;
+			border-top: 8px solid rgba(0,0,0,0);
+			border-bottom: 8px solid rgba(0,0,0,0);
+		}
+
+/*		#buttonLeft:hover, #buttonRight:hover {
+			border-left-color: #aaa;
+			border-right-color: #aaa;
+		}*/
+		
+		#buttonLeft {
+			left: 4px;
+			border-right-width: 13px;
+		}
+		
+		#buttonRight {
+			right: 4px;
+			border-left-width: 13px;
+		}
+		
+		.active {
+			opacity: 1;
+			cursor: pointer;
+			border-color: #888;
+		}
+		
+		.active:hover {
+			border-left-color: #fff;
+			border-right-color: #fff;
+		}
+		
+		.disabled {
+			border-color: #222;
+			cursor: default;
+		}
+		
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.flickr.js"></script>
+	<script language="Javascript" type="text/javascript">
+		var thumbs;
+		var apikey = '5bc8586332ba0339327a9d0ed3b28742';
+		var config = {
+			api_key: apikey,
+		};
+		var groupPhotos = "flickr.groups.pools.getPhotos";
+		var peopleInfo = "flickr.people.getInfo";
+		var groupId = "1259359@N24";
+		
+		isEmpty = function(obj) {
+      		for (var i in obj) { return false }
+      		return true;
+    	};
+		
+		url = function (method, params) { 
+			return "http://api.flickr.com/services/rest/?method="+method+"&format=json&api_key=" + apikey +
+			(isEmpty(params) ? '' : '&' + $.param(params)) + "&jsoncallback=?";
+		};
+		
+		imageUrl = function (photo, size) {
+			return 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + 
+				'_' + photo.secret + size + '.jpg'
+		};
+		
+		rotateThumbs = function (page) {
+			var maxPages;
+			// $("#images").empty();
+			$("#images > li").fadeOut("normal");
+			
+			PlaceAuthor = function (data) {
+				
+				$("#infoBox").css("display","block");
+				$("#infoBoxAuthor").empty();
+				person = data.person;
+				thisLink = $("<a/>").attr("href", person.photosurl._content).text(person.username._content + "'s");
+				thisLink.appendTo("#infoBoxAuthor");
+				$("#infoBoxIcon").css("background-image", 
+				 	"url(http://farm" + person.iconfarm + ".static.flickr.com/" + person.iconserver +
+					"/buddyicons/" + person.id + ".jpg)");
+				
+			};
+			
+			PlaceImages = function (data) {
+        		photos = (data.photos === undefined ? data.photoset : data.photos);
+				maxPages = photos.pages;
+
+				$.each(photos.photo, 
+					function (i, photo) {
+						var imageDate = new Date( photo.dateadded *1000);
+						var thisDate = imageDate.toGMTString().replace(/[0-9][0-9]:.*$/,"");
+						var image = new Image();
+						var largeImage = new Image();
+						largeImage.src = imageUrl(photo, "");
+						image.src = imageUrl(photo, "_s");
+						image.alt = photo.title;
+						
+						var thisLi = $("<li/>").css("display","none").appendTo("#images");
+						var thisImg = $("<img/>").attr("src", image.src).attr("alt", image.alt);
+						thisImg.appendTo(thisLi);
+						// var thisP = $("<p/>").html(photo.dateadded);
+						// thisP.appendTo(thisLi);
+						
+						thisImg.click(
+							function () {
+								$("#fader").animate({
+									opacity: "1"
+								}, "slow", "swing", function () {
+									$("#mainWrapper").css("background-image","url(" + largeImage.src + ")");
+									$("#infoBoxTitle").html(photo.title);
+									$("#infoBoxDate").text(thisDate);
+									$.getJSON(url(peopleInfo, {user_id: photo.owner}), PlaceAuthor);
+									
+									$("#fader").animate({
+										opacity: "0"
+									}, "slow");
+								});
+							}
+						);
+						
+						thisLi.fadeIn("normal");
+					}
+				);
+				
+				page == 1 ? 
+					$("#buttonLeft").removeClass("active").addClass("disabled").unbind('click') :
+					$("#buttonLeft").click(function () {$("#buttonRight").removeClass("disabled").addClass("active");rotateThumbs(page-1);});
+				page == maxPages ? 
+					$("#buttonRight").removeClass("active").addClass("disabled").unbind('click') : 
+					$("#buttonRight").click(function () {$("#buttonLeft").removeClass("disabled").addClass("active");rotateThumbs(page+1);});
+				
+			};
+			
+			$.getJSON(url(groupPhotos, {group_id: "1259359@N24", per_page: 6, page: page}), PlaceImages);
+			
+		}
+
+		$(document).ready( function () {
+			rotateThumbs(1);		
+		});
+				
+	</script>
+	<script>
+
+	</script>
+</head>
+
+<body>
+
+	
+	<div id="homeLink"><span class="cBlue">Mad</span><span class="cPink">Pattern</span>&raquo;</div>
+
+	<div id="mainWrapper">
+
+	<div id="fader">
+	</div>
+	
+	<div id="imageBox">
+		<div id="buttonLeft" class="active"></div>
+		<div id="buttonRight" class="active"></div>
+		<ul id="images">
+			<li><img id="loader" src="ajax-loader.gif"/></li>
+		</ul>
+	</div>
+
+		<div id="infoBox">
+			<div id="infoBoxIcon"></div>
+			<div id="infoBoxTitle"></div>
+			<div id="infoBoxAuthor"></div>
+			<div id="infoBoxDate"></div>
+		</div>
+	
+	</div>
+
+
+	
+
+	<div id="footer">
+		<ul>
+			<li>contact</li>
+			<li>sign guestbook</li>
+			<li>about</li>
+			<li>tutorial</li>
+			<li>faq</li>
+
+			<li>sitemap (yeeaAAaah)</li>
+			<li>gallery</li>
+			<li>licensing information</li>
+		</ul>
+		<div id="policy">© copyright matt handler</div>
+	</div>
+	
+
+</body>
+
+</html>

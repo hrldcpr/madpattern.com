@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+
+<head>
+	<title>MadPattern - A Free Tool For Rapidly Prototyping Patterns</title>
+	<meta name="title" content="MadPattern" /> 
+	<meta name="description" content="a free tool for rapidly prototyping patterns" /> 
+	<link rel="image_src" href="microdefender.of.salt.share.png" / >
+	<meta name="medium" content="image" />
+	<style type="text/css">
+		
+		* {
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			font-family: helvetica;
+		}
+		
+		a {
+			color: fuchsia;
+		}
+		
+		.cBlue {
+			color: #143462;
+		}
+
+		.cPink {
+			color: fuchsia;
+		}
+		
+		body {
+			background-color: #111;
+			background-color: #181818;
+		}
+		
+		#header {
+			position: relative;
+			background-color: #111;
+		}
+		
+		#slogan{
+			position: absolute;
+			bottom: 4px;
+			left: 200px;
+			color: #FFEA00;
+		}
+		
+		#menuWrapper {
+			position: absolute;
+			bottom: 10%;
+			right: 15px;
+			color: white;
+		}
+		
+		#menuWrapper > a {
+			color: #ccc;
+			padding: 6px;
+			border: 2px solid rgba(0,0,0,.5);
+			text-decoration: none;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			background-color: #143462;
+			position: relative;
+			margin-left: 10px;
+			background-image: url(webpagebg.png);
+		}
+		
+		#menuWrapper > a:hover {
+			color: white;
+			border-color: rgba(0,0,0,.6);
+		}
+		
+		#wrapper {
+			border-top: 4px solid rgba(0,0,0,.6);
+			border-bottom: 4px solid rgba(0,0,0,.6);
+			background-color: #eee;
+			height: 400px;
+			position: relative;
+			padding: 5px 4px 5px 4px;
+			background-image: url(crisis.averted.go.keira.knightley.tile.png);
+		}
+		
+		#headbox, #headboxShadow {
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			z-index: 2;
+			background-color: #eee;
+			position: absolute;
+			width: 40%;
+			min-width: 460px;
+			height: 70%;
+			left: 20px;
+			top: 20px;
+			padding: 30px;
+			color: #666;
+		}
+		
+		#headboxShadow {
+			z-index: 1;
+			top: 35px;
+			left: 32px;
+			background-color: rgba(0,0,0,.6);
+		}
+		
+		#headbox h2 {
+			color: #143462;
+			font-size: 200%;
+			margin-bottom: -4px;
+		}
+		
+		#headbox h3 {
+			color: #666;
+			text-align: right;
+			font-size: 14px;
+			font-family: arial;
+			font-weight: lighter;
+			font-style: italic;
+			padding-right: 10px;
+		}
+		
+		#headbox p {
+			padding: 20px 20px 0px 20px;
+		}
+		
+		#headbox ul{
+			padding: 20px;
+			list-style-position: inside;
+			list-style-type: square;
+		}
+		
+		#headbox ul label {
+			font-size: 20px;
+			font-weight: bolder;
+			margin-bottom: 3px;
+			color: black;
+		}
+		
+		#headbox ul li {
+			color: #222;
+			padding-left: 20px;
+			padding-bottom: 4px;
+		}
+		
+		#vidbox, #buyBox {
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			padding: 10px;
+			position: absolute;
+			background-color: rgba(255,255,255,.6);
+			top: 20px;
+			right: 40px;
+			text-align: center;
+			min-width: 400px;
+			min-height: 327px;
+		}
+		
+		#buyBox {
+			background-color: white;
+		}
+		
+		#buyBox h4 {
+			margin: 20px 0px 15px 0px;
+			color: #143462;
+			font-size: 21px;
+		}
+		
+		#vidbox {
+			display: none;
+		}
+		
+		#chooser div{
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			display: inline-block;
+			width: 25%;
+			text-decoration: none;
+			color: white;
+			background-color: #666;
+			margin: 2px;
+			margin-left: 3px;
+			margin-right: 3px;
+			cursor: pointer;
+		}
+		
+		#chooser div.active {
+			background-color: #111;
+		}
+		
+		#chooser div:hover {
+			background-color: #333;
+			text-decoration: underline;
+		}
+		
+		#chooser div:active {
+			background-color: black;
+		}
+		
+		#footer {
+			height: 100px;
+			color: white;
+			position: relative;
+			background-image: url(http://www.madpattern.com/gradient.php?height=100&color2=181818&color1=000);
+			background-repeat: repeat-x;
+		}
+		
+		#help {
+			position: absolute;
+			left: 20px;
+			top: 20px;
+		}
+		
+		#donate {
+			position: absolute;
+			top: 15px;
+			right: 130px;
+		}
+		
+		#copywrite {
+			text-align: center;
+			padding-top: 15px;
+			width: 100%;
+			font-size: 12px;
+			font-weight: normal;
+			padding-top: 80px;
+			color: #444;
+		}
+		
+		#copywrite a {
+			color: #666;
+			text-decoration: none;
+		}
+		
+		#download {
+			background-image: url(button.download.hover.png);
+			position: absolute;
+			width: 228px;
+			height: 96px;
+			top: 10px;
+			right: 10px;
+		}
+		
+	 	a #download {
+			display: block;
+			background-image: url(button.download.png);
+			background-repeat: no-repeat;
+			background-position: 4px 6px;
+			right: 24px;
+			top: 4px;
+			width: 228px;
+			height: 96px;
+		}
+		
+		a:hover #download {
+			right: 24px;
+			top: 4px;
+			padding-bottom: 6px;
+			background-image: url(button.download.hover.png);
+			background-position: 0px 0px;
+		}
+		
+		#vid2 {
+			display: none;
+		}
+		
+		.closeButton {
+			-moz-border-radius: 9px;
+			-webkit-border-radius: 9px;
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			top: 2px;
+			right: 2px;
+			color: white;
+			background-color: #333;
+			padding: 0px 3px 3px 3px;
+			cursor: pointer;
+		}
+		
+		.closeButton:hover {
+			background-color: black;
+		}
+		
+		#about {
+			display: none;
+		}
+		
+		#tutorialButton {
+			cursor: pointer;
+		}
+		
+		#tweet {
+			position: absolute;
+			right: 10px;
+			bottom: 28px;
+		}
+		
+		#facebook {
+			position: absolute;
+			right: 64px;
+			bottom: 31px;
+		}
+		
+		#affil1 {
+			display: none;
+			position: absolute;
+			top: 88px;
+			right: 7px;
+/*			top: 34px;
+			right: 248px;*/
+			color: white;
+			text-align: right;
+		}
+		
+		#affil2 {
+			
+		}
+		
+		#moreTuts {
+			margin: 10px;
+			background-color: white;
+			display: none;
+			list-style-type: none;
+			padding: 5px;
+		}
+		
+		#moreTuts li {
+			text-align: left;
+			padding: 3px;
+		}
+		
+		#moreTuts li + li {
+			margin-top: 5px;
+		}
+		
+		#orWatch {
+			font-size: 80%;
+			cursor: pointer;
+		}
+	</style>
+	<!--[if IE]>
+	   <style type="text/css">
+
+		#menuWrapper a {
+			border: 2px solid rgba(0,0,0,.5);
+			border: 2px solid #222;
+		}
+		
+		#menuWrapper a:hover {
+			border-color: rgba(0,0,0,.6);
+			border-color: #333;
+		}
+		
+		#wrapper {
+			border-top: 4px solid rgba(0,0,0,.6);
+			border-bottom: 4px solid rgba(0,0,0,.6);
+			border-top: 4px solid #111;
+			border-bottom: 4px solid #111;
+		}
+	   
+		#vidbox, #buyBox {
+			background-color: rgba(255,255,255,.6);
+			background: transparent;
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF,endColorstr=#99FFFFFF)"; /* IE8 */    
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF,endColorstr=#99FFFFFF);   /* IE6 & 7 */      
+			zoom: 1;
+		}
+		
+		#headboxShadow {
+			background-color: rgba(0,0,0,.6);
+			background: transparent;
+			-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000)"; /* IE8 */    
+			filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000,endColorstr=#99000000);   /* IE6 & 7 */      
+			zoom: 1;
+		}
+
+	    </style>
+	<![endif]-->
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script language="Javascript" type="text/javascript">
+		var hover = new Image();
+		hover.src = "/button.download.hover.png";
+		
+		var regularStore = "http://www.society6.com/studio/madpattern",
+			laptopStore = "http://www.society6.com/studio/madpattern/store/laptop-skins",
+			ipodStore = "http://www.society6.com/studio/madpattern/store/phone-skins",
+			seed = Math.random(),
+			storeLink, storePhrase;
+			
+		if (seed > 0.666) {
+			storeLink = ipodStore;
+			storePhrase = "ipodStore";
+		}
+		else if (seed > 0.333) {
+			storeLink = laptopStore;
+			storePhrase = "laptopStore";
+		}
+		else {
+			storeLink = regularStore;
+			storePhrase = "regularStore";
+		}
+
+		$(document).ready( function () {
+			$("#chooser div").click( function () {
+				$(this).addClass("active").siblings("div").removeClass("active");
+			});
+			
+			$("#video1").click(function () {
+				$("#vid2").add("#moreTuts").hide();
+				$("#vid1").show();
+			});
+			
+			$("#video2").click(function () {
+				$("#vid1").add("#moreTuts").hide();
+				$("#vid2").show();
+			});
+			
+			$("#moreTutsButton").click(function () {
+				$("#vid2").add("#vid1").hide();
+				$("#moreTuts").show();				
+			})
+			
+			$("#tutorialButton, #orWatch").click(function (e) {
+				e.preventDefault();
+				$("#buyBox").hide();
+				$("#vidbox").show();
+			});
+			
+			$(".closeButton").click(function () {
+				$(this).parent().fadeOut();
+			})
+						
+			if (Math.random() > .7) {
+				$("#wrapper").css("background-image", "url(microdefender.of.salt.tile.png)");
+			}
+			
+			$(".storeLink").attr("href", storeLink);
+		});
+				
+	</script>
+
+	<script>
+
+	</script>
+	<meta name="google-site-verification" content="60P5dr4CzBucSEQHU5A7tltwbCRblf24WxHmXrqdqR4" />
+</head>
+
+<body>
+	<!-- <script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-16659632-1']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script> -->
+	<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try{
+		var pageTracker = _gat._getTracker("UA-16659632-1");
+		pageTracker._trackPageview();
+		} catch(err) {}
+	</script>
+	<div id="header">
+			<a href="madpattern.1.0.zip" onClick="javascript: pageTracker._trackPageview('/downloads/madpattern.1.0');">
+				<div id="download"></div>
+			</a>
+			<p id="affil1">
+				get your patterns printed at
+				<a href="http://www.shareasale.com/r.cfm?b=127790&u=434875&m=17840&urllink=&afftrack=">Unique Skins</a>
+				and <a href="http://www.spoonflower.com/">Spoonflower</a>
+			</p>
+			<a href="/"><img src="madpatternlogo.png" /></a>
+			<p class="" id="slogan">a free tool for rapidly prototyping patterns</p>
+			<div id="menuWrapper">
+				<span style="position:relative;top:6px"><a href="http://www.twitter.com/themadpattern"><img src="http://twitter-badges.s3.amazonaws.com/t_small-c.png" alt="Follow themadpattern on Twitter"/></a></span>
+				<a class='storeLink' href="http://www.society6.com/studio/madpattern" target="_new" onClick="javascript: pageTracker._trackPageview('/outbound/shop/'+storePhrase);">shop</a>
+				<a href="gallery.html">gallery</a>
+				<a id="tutorialButton">tutorial</a>
+				<a href="http://groups.google.com/group/madpattern" onClick="javascript: pageTracker._trackPageview('/outbound/support');">support</a>
+			</div>
+	</div>
+	<div id="wrapper">
+		<div id="headbox">
+			<h2>MadPattern is a collection of Adobe Illustrator templates</h2>
+			<h3>compatible with cs4 and cs5</h3>
+			<ul>
+				<label>features:</label>
+				<li>one template for each <a href="http://en.wikipedia.org/wiki/Wallpaper_group#The_seventeen_groups">type of pattern</a></li>
+				<li>automatic symmetric replication</li>
+				<li>automatic clipping of elements drawn "out of bounds"</li>
+				<li>easy to save/export repeating tile (for webpage backgrounds)</li>
+			</ul>
+			...by the way, <a href="madpattern.1.0.zip" onClick="javascript: pageTracker._trackPageview('/downloads/madpattern.1.0');">they're free to download</a>
+			<div id="about">
+				<p>
+					a few years ago i started investigating patterns.  i couldn't find any tools that 
+					would let me design them in the way that i wanted, so i started trying to make illustrator do it.
+				</p>
+				<p>
+					i found that the templates made it incredibly easy to quickly learn about and generate
+					really cool patterns.  once you've made some cool patterns, upload the tiles you create
+					to the <a href="">flickr group</a> and they'll appear in the gallery for all to see.
+				</p>
+			</div>
+			<!--<p id="affil2">
+				get your patterns printed at
+				<a href="http://www.shareasale.com/r.cfm?b=127790&u=434875&m=17840&urllink=&afftrack=" onClick="javascript: pageTracker._trackPageview('/outbound/uniqueskins');" target="new">Unique Skins</a>
+				and <a href="http://www.spoonflower.com/" onClick="javascript: pageTracker._trackPageview('/outbound/spoonflower');" target="new">Spoonflower</a>
+			</p>-->
+		</div>
+		<div id="headboxShadow">
+		</div>
+		<div id="buyBox">
+			<h4>Check out the <a class='storeLink' href="http://www.society6.com/studio/madpattern" target="_new" onClick="javascript: pageTracker._trackPageview('/outbound/shop'+storePhrase);">store</a> for sweet merch!</h4>
+			<div class="closeButton">x</div>
+			<script type="text/javascript"><!--
+			s6_user = "madpattern";
+			s6_studio = "madpattern";
+			s6_format = "300x250";
+			//--></script>
+			<script type="text/javascript" src="http://www.society6.com/js/show_banner.js">
+			</script>
+			<br/>
+			<a id="orWatch">or watch the <u>demos</u></a>
+		</div>
+		<div id="vidbox">
+			<div class="closeButton">x</div>
+			<div id="chooser">
+				<div id="video1" class="active" href="/">quick demo</div>
+				<div id="video2" href="/">tutorial</div>
+				<div id="moreTutsButton" href="/">more</div>
+			</div>
+			<div id="vid1">
+				<object width="376" height="292">
+					<param name="allowfullscreen" value="true" />
+					<param name="allowscriptaccess" value="always" />
+					<param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=12073467&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" />
+					<embed src="http://vimeo.com/moogaloop.swf?clip_id=12073467&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="376" height="292">
+					</embed>
+				</object>
+			</div>
+			<div id="vid2">
+				<object width="376" height="292">
+					<param name="allowfullscreen" value="true" />
+					<param name="allowscriptaccess" value="always" />
+					<param name="movie" value="http://vimeo.com/moogaloop.swf?clip_id=5853947&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" />
+					<embed src="http://vimeo.com/moogaloop.swf?clip_id=5853947&amp;server=vimeo.com&amp;show_title=0&amp;show_byline=0&amp;show_portrait=0&amp;color=59a5d1&amp;fullscreen=1" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="376" height="292">
+					</embed>
+				</object>
+			</div>
+			<ul id="moreTuts">
+				<strong style="margin-top:5px; margin-bottom:5px;display: inline-block;">More Tutorials:</strong>
+				<li><a target="_blank" onClick="javascript: pageTracker._trackPageview('/download/cheatsheet');" href="/madPattern_cheatsheet.pdf">MadPattern Cheat Sheet - Created by <a href='http://www.twitter.com/chitchy' target='_new'>@chitchy</a></a></li>
+				<li><a target="_blank" onClick="javascript: pageTracker._trackPageview('/outbound/tutorial/pattern-swatch');" href="http://vectips.com/tutorials/amazing-free-seamless-pattern-generator-templates-for-illustrator/">Vectips.com - Creating an Illustrator Pattern Swatch</a></li>
+				<li><a target="_blank" onClick="javascript: pageTracker._trackPageview('/outbound/tutorial/damask');" href="http://vector.tutsplus.com/tutorials/tools-tips/quick-tip-create-a-damask-pattern-using-the-madpattern-illustrator-template/">VectorTuts.com - Create a Damask Pattern</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="footer">
+		<div id="help">
+			need help? want me to design a pattern for you? feel free to <a href="mailto:matt@madpattern.com">email me</a> or message me <a href="http://twitter.com/themadpattern">@themadpattern</a>
+		</div>
+		<div id="copywrite">
+			<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/3.0/us/80x15.png" /></a><br /><span xmlns:dc="http://purl.org/dc/elements/1.1/" href="http://purl.org/dc/dcmitype/InteractiveResource" property="dc:title" rel="dc:type">MadPattern 1.0</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.madpattern.com/" property="cc:attributionName" rel="cc:attributionURL">Matt Handler</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/us/">Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States License</a>.
+			<br/>
+			<a href="http://www.matthandler.com" target="new" onClick="javascript: pageTracker._trackPageview('/outbound/matthandler.com');">matt handler.com</a>
+		</div>
+		<div id="tweet">
+			<script type="text/javacript">
+				tweetmeme_source = 'matthandlersux';
+			</script>
+			<script type="text/javascript" src="http://tweetmeme.com/i/scripts/button.js"></script>
+		</div>
+		<div id="facebook">
+			<a name="fb_share" type="box_count" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>		</div>
+		<div id="donate">
+			<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+			">
+			<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>

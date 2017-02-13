@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>My Google AJAX Search API Application</title>
+	<script src="/jquery-1.4.2.min.js" type="text/javascript"></script>
+    
+	<!-- maps api, ajax search api, map search control code -->
+	<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAbwrfKDuT-BH0ue706bxWfBRBmMvc9a4Nzj3tu7-Zxwkx9W4n0hQoLE8VtO_BZ2EuMS40cIaKLsA55w"
+	    type="text/javascript"></script>
+	<script src="http://www.google.com/uds/api?file=uds.js&v=1.0&key=ABQIAAAAbwrfKDuT-BH0ue706bxWfBRBmMvc9a4Nzj3tu7-Zxwkx9W4n0hQoLE8VtO_BZ2EuMS40cIaKLsA55w"
+	    type="text/javascript"></script>
+	<script src="http://www.google.com/uds/solutions/mapsearch/gsmapsearch.js"
+	    type="text/javascript"></script>
+
+	<!-- ajax search stylesheet, map search stylesheet -->
+	<link href="http://www.google.com/uds/css/gsearch.css" rel="stylesheet"
+	    type="text/css"/>
+	<link href="http://www.google.com/uds/solutions/mapsearch/gsmapsearch.css"
+	    rel="stylesheet" type="text/css"/>
+	
+	<style type="text/css">
+		#mapsearch {
+		  width : 400px;
+		  margin : 10px;
+		  padding : 4px;
+		  border : 1px solid #f9f9f9;
+		}
+
+		/* set height of idle state map */
+		#mapsearch .gsmsc-idleMapDiv { height : 200px; }
+
+		/* set height of active state map */
+		#mapsearch .gsmsc-mapDiv { height : 300px; }
+	</style>
+    
+
+	<script language="Javascript" type="text/javascript">
+		function LoadMapSearch() {
+		  new GSmapSearchControl(
+		        document.getElementById("mapsearch"),             // container
+		        "1600 Amphitheatre Parkway, Mountain View, CA",   // center point
+		        null                                              // options
+		        );
+		}
+		/**
+		 * Arrange for LoadMapSearch to run once the page loads.
+		 */
+		GSearch.setOnLoadCallback(LoadMapSearch);
+    </script>
+  </head>
+  <body>
+    <div id="mapsearch">Loading...</div>
+  </body>
+</html>
